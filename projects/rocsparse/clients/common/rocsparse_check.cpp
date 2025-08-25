@@ -229,20 +229,33 @@ void near_check_general_template(int64_t            M,
     int                tolm            = 1;
     bool               passed          = true;
     floating_data_t<T> min_passing_tol = 0;
+
     for(int64_t j = 0; j < N; ++j)
     {
         for(int64_t i = 0; i < M; ++i)
         {
-            T compare_val = std::max(rocsparse_abs(A[i + j * LDA] * tol),
-                                     10 * std::numeric_limits<T>::epsilon());
+            // Compare threshold: relative (|A|*tol) with small absolute floor (10*eps)
+            const floating_data_t<T> base_absA =
+                rocsparse_abs(A[i + j * LDA]);
+            const floating_data_t<T> compare_val =
+                std::max(base_absA * tol,
+                         floating_data_t<T>(10)
+                             * std::numeric_limits<floating_data_t<T>>::epsilon());
+
 #ifdef GOOGLE_TEST
             if(rocsparse_isnan(A[i + j * LDA]))
             {
-                ASSERT_TRUE(rocsparse_isnan(B[i + j * LDB]));
+                ASSERT_TRUE(rocsparse_isnan(B[i + j * LDB]))
+                    << "NaN mismatch at (i,j)=(" << i << "," << j << ") "
+                    << "for matrix dims MxN=" << M << "x" << N
+                    << ", LDA=" << LDA << ", LDB=" << LDB;
             }
             else if(rocsparse_isinf(A[i + j * LDA]))
             {
-                ASSERT_TRUE(rocsparse_isinf(B[i + j * LDB]));
+                ASSERT_TRUE(rocsparse_isinf(B[i + j * LDB]))
+                    << "Inf mismatch at (i,j)=(" << i << "," << j << ") "
+                    << "for matrix dims MxN=" << M << "x" << N
+                    << ", LDA=" << LDA << ", LDB=" << LDB;
             }
             else
 #endif
@@ -250,7 +263,8 @@ void near_check_general_template(int64_t            M,
                 int k;
                 for(k = 1; k <= MAX_TOL_MULTIPLIER; ++k)
                 {
-                    if(rocsparse_abs(A[i + j * LDA] - B[i + j * LDB]) <= compare_val * k)
+                    if(rocsparse_abs(A[i + j * LDA] - B[i + j * LDB])
+                       <= compare_val * k)
                     {
                         break;
                     }
@@ -263,39 +277,59 @@ void near_check_general_template(int64_t            M,
                         if(passed)
                         {
                             std::cerr.precision(12);
-                            std::cerr
-                                << "ASSERT_NEAR(" << A[i + j * LDA] << ", " << B[i + j * LDB]
-                                << ") failed: " << rocsparse_abs(A[i + j * LDA] - B[i + j * LDB])
-                                << " exceeds permissive range [" << compare_val << ","
-                                << compare_val * MAX_TOL_MULTIPLIER << " ]" << std::endl;
                         }
 
-                        min_passing_tol = std::max(min_passing_tol,
-                                                   rocsparse_abs(A[i + j * LDA] - B[i + j * LDB])
-                                                       / std::max(rocsparse_abs(A[i + j * LDA]),
-                                                                  rocsparse_abs(B[i + j * LDB])));
+                        std::cerr << "ASSERT_NEAR failed at (i,j)=(" << i << "," << j << ") "
+                                  << "for matrix dims MxN=" << M << "x" << N
+                                  << ", LDA=" << LDA << ", LDB=" << LDB << "\n"
+                                  << "A=" << A[i + j * LDA]
+                                  << ", B=" << B[i + j * LDB] << "\n"
+                                  << "abs(A-B)="
+                                  << rocsparse_abs(A[i + j * LDA] - B[i + j * LDB])
+                                  << " exceeds permissive range ["
+                                  << compare_val << ", "
+                                  << compare_val * MAX_TOL_MULTIPLIER << " ]\n";
+
+                        // Minimal relative tol that would pass for this element
+                        const floating_data_t<T> denom =
+                            std::max(rocsparse_abs(A[i + j * LDA]),
+                                     rocsparse_abs(B[i + j * LDB]));
+                        const floating_data_t<T> min_passing_tol_tmp =
+                            denom > floating_data_t<T>(0)
+                                ? rocsparse_abs(A[i + j * LDA] - B[i + j * LDB]) / denom
+                                : floating_data_t<T>(0);
+
+                        min_passing_tol = std::max(min_passing_tol, min_passing_tol_tmp);
                         passed          = false;
                     }
                 }
+
                 tolm = std::max(tolm, k);
             }
         }
     }
+
     if(!passed)
     {
-        std::cerr << "Test failed with tol = " << tol << ". Relaxing the tolerance to at least "
-                  << min_passing_tol << " would make the test pass." << std::endl;
+        std::cerr << "Test failed with tol = " << tol << ". "
+                  << "Relaxing the tolerance to at least " << min_passing_tol
+                  << " would make the test pass. "
+                  << "(Matrix dims MxN=" << M << "x" << N
+                  << ", LDA=" << LDA << ", LDB=" << LDB << ")\n";
     }
+
 #ifdef GOOGLE_TEST
-    ASSERT_TRUE(passed);
+    ASSERT_TRUE(passed) << "near_check_general_template failed for matrix dims MxN="
+                        << M << "x" << N << ", LDA=" << LDA << ", LDB=" << LDB;
 #else
     if(!passed)
         exit(EXIT_FAILURE);
 #endif
+
     if(tolm > 1)
     {
         std::cerr << "WARNING near_check has been permissive with a tolerance multiplier equal to "
-                  << tolm << std::endl;
+                  << tolm << " (Matrix dims MxN=" << M << "x" << N << ")\n";
     }
 }
 
@@ -320,11 +354,17 @@ void near_check_general_template(int64_t                        M,
 #ifdef GOOGLE_TEST
             if(rocsparse_isnan(A[i + j * LDA]))
             {
-                ASSERT_TRUE(rocsparse_isnan(B[i + j * LDB]));
+                ASSERT_TRUE(rocsparse_isnan(B[i + j * LDB]))
+                    << "NaN mismatch at (i,j)=(" << i << "," << j << ") "
+                    << "for matrix dims MxN=" << M << "x" << N
+                    << ", LDA=" << LDA << ", LDB=" << LDB;
             }
             else if(rocsparse_isinf(A[i + j * LDA]))
             {
-                ASSERT_TRUE(rocsparse_isinf(B[i + j * LDB]));
+                ASSERT_TRUE(rocsparse_isinf(B[i + j * LDB]))
+                    << "Inf mismatch at (i,j)=(" << i << "," << j << ") "
+                    << "for matrix dims MxN=" << M << "x" << N
+                    << ", LDA=" << LDA << ", LDB=" << LDB;
             }
             else
 #endif
@@ -345,12 +385,16 @@ void near_check_general_template(int64_t                        M,
                         if(passed)
                         {
                             std::cerr.precision(16);
-                            std::cerr
-                                << "ASSERT_NEAR(" << A[i + j * LDA] << ", " << B[i + j * LDB]
-                                << ") failed: " << rocsparse_abs(A[i + j * LDA] - B[i + j * LDB])
-                                << " exceeds permissive range [" << compare_val << ","
-                                << compare_val * MAX_TOL_MULTIPLIER << " ]" << std::endl;
                         }
+
+                        std::cerr << "ASSERT_NEAR failed at (i,j)=(" << i << "," << j << ") "
+                                  << "for matrix dims MxN=" << M << "x" << N
+                                  << ", LDA=" << LDA << ", LDB=" << LDB << "\n"
+                                  << "A=" << A[i + j * LDA] << ", B=" << B[i + j * LDB] << "\n"
+                                  << "abs(A-B)="
+                                  << rocsparse_abs(A[i + j * LDA] - B[i + j * LDB])
+                                  << " exceeds permissive range [" << compare_val << ", "
+                                  << compare_val * MAX_TOL_MULTIPLIER << " ]\n";
 
                         float min_passing_tol_tmp = rocsparse_abs(A[i + j * LDA] - B[i + j * LDB])
                                                     / std::max(rocsparse_abs(A[i + j * LDA]),
@@ -366,11 +410,15 @@ void near_check_general_template(int64_t                        M,
     }
     if(!passed)
     {
-        std::cerr << "Test failed with tol = " << tol << ". Relaxing the tolerance to at least "
-                  << min_passing_tol << " would make the test pass." << std::endl;
+        std::cerr << "Test failed with tol = " << tol << ". "
+                  << "Relaxing the tolerance to at least " << min_passing_tol
+                  << " would make the test pass. "
+                  << "(Matrix dims MxN=" << M << "x" << N
+                  << ", LDA=" << LDA << ", LDB=" << LDB << ")\n";
     }
 #ifdef GOOGLE_TEST
-    ASSERT_TRUE(passed);
+    ASSERT_TRUE(passed) << "near_check_general_template failed for matrix dims MxN="
+                        << M << "x" << N << ", LDA=" << LDA << ", LDB=" << LDB;
 #else
     if(!passed)
         exit(EXIT_FAILURE);
@@ -378,7 +426,7 @@ void near_check_general_template(int64_t                        M,
     if(tolm > 1)
     {
         std::cerr << "WARNING near_check has been permissive with a tolerance multiplier equal to "
-                  << tolm << std::endl;
+                  << tolm << " (Matrix dims MxN=" << M << "x" << N << ")\n";
     }
 }
 
