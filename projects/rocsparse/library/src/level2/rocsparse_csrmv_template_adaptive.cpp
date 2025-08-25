@@ -31,6 +31,25 @@
 #include "csrmv_device.h"
 #include "csrmv_symm_device.h"
 #include <vector>
+// DEBUG: Added for debug printing
+#include <cstdio>
+// DEBUG: Added simple debug macro (enabled with -DROCSPARSE_DEBUG)
+#ifndef ROCSPARSE_DEBUG
+#define ROCSPARSE_DEBUG 1
+#endif
+#ifdef ROCSPARSE_DEBUG
+#define ROCSPARSE_DEBUG_PRINT(...)                                                  \
+    do                                                                              \
+    {                                                                               \
+        std::fprintf(stderr, __VA_ARGS__);                                          \
+        std::fflush(stderr);                                                        \
+    } while(0)
+#else
+#define ROCSPARSE_DEBUG_PRINT(...) \
+    do                             \
+    {                              \
+    } while(0)
+#endif
 
 #define BLOCK_SIZE 1024
 #define BLOCK_MULTIPLIER 3
@@ -225,6 +244,16 @@ namespace rocsparse
                 static constexpr I maxNumberOfWorkgroups = static_cast<I>(INT_MAX);
                 numWGReq = (numWGReq < maxNumberOfWorkgroups) ? numWGReq : maxNumberOfWorkgroups;
 
+                // DEBUG: Log detection of very long row and its split across workgroups
+                ROCSPARSE_DEBUG_PRINT(
+                    "CSR-Adaptive: very long row detected: row=%lld length=%lld "
+                    "splitting into %lld workgroups (BLOCK_SIZE=%d, BLOCK_MULTIPLIER=%d)\n",
+                    static_cast<long long>(i - 1),
+                    static_cast<long long>(row_length),
+                    static_cast<long long>(numWGReq),
+                    BLOCK_SIZE,
+                    BLOCK_MULTIPLIER);
+
                 if(allocate_row_blocks)
                 {
                     for(I w = 1; w < numWGReq; ++w)
@@ -240,6 +269,13 @@ namespace rocsparse
                     ++rowBlocks;
                     ++wgIds;
                 }
+
+                // DEBUG: Log advancement of rowBlocks pointer and block count change
+                ROCSPARSE_DEBUG_PRINT(
+                    "CSR-Adaptive: row=%lld rowBlocks advanced to index=%lld, total_row_blocks += %lld\n",
+                    static_cast<long long>(i - 1),
+                    static_cast<long long>(allocate_row_blocks ? (rowBlocks - rowBlocksBase) : 0),
+                    static_cast<long long>(numWGReq));
 
                 total_row_blocks += numWGReq;
                 last_i                = i;
@@ -414,6 +450,12 @@ rocsparse_status
         // Allocate memory on device to hold csrmv info, if required
         if(csrmv_info->adaptive.size > 0)
         {
+            // DEBUG: Log planned allocations
+            ROCSPARSE_DEBUG_PRINT(
+                "CSR-Adaptive: allocating row_blocks=%zu, wg_ids=%zu, wg_flags=%zu entries\n",
+                static_cast<size_t>(csrmv_info->adaptive.size),
+                static_cast<size_t>(csrmv_info->adaptive.size),
+                static_cast<size_t>(csrmv_info->adaptive.size));
 
             RETURN_IF_HIP_ERROR(rocsparse_hipMallocAsync(&csrmv_info->adaptive.row_blocks,
                                                          sizeof(I) * csrmv_info->adaptive.size,
@@ -426,6 +468,12 @@ rocsparse_status
                                                          sizeof(J) * csrmv_info->adaptive.size,
                                                          handle->stream));
 
+            // DEBUG: Confirm wg_flags allocation size and stream
+            ROCSPARSE_DEBUG_PRINT(
+                "CSR-Adaptive: allocated wg_flags bytes=%zu on stream=%p\n",
+                sizeof(uint32_t) * static_cast<size_t>(csrmv_info->adaptive.size),
+                static_cast<void*>(handle->stream));
+
             // Copy row blocks information to device
             RETURN_IF_HIP_ERROR(hipMemcpyAsync(csrmv_info->adaptive.row_blocks,
                                                row_blocks.data(),
@@ -436,6 +484,12 @@ rocsparse_status
                                                0,
                                                sizeof(uint32_t) * csrmv_info->adaptive.size,
                                                stream));
+
+            // DEBUG: Confirm initialization of wg_flags
+            ROCSPARSE_DEBUG_PRINT(
+                "CSR-Adaptive: initialized wg_flags to zero (entries=%zu)\n",
+                static_cast<size_t>(csrmv_info->adaptive.size));
+
             RETURN_IF_HIP_ERROR(hipMemcpyAsync(csrmv_info->adaptive.wg_ids,
                                                wg_ids.data(),
                                                sizeof(J) * csrmv_info->adaptive.size,
