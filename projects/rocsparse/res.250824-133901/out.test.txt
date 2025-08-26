@@ -1,0 +1,729 @@
+Query device success: there are 1 devices
+Device ID 0: Radeon RX 7900 XTX
+-------------------------------------------------------------------------
+with 24560MB memory, clock rate 2526MHz @ computing capability 11.0
+maxGridDimX 2147483647, sharedMemPerBlock 64KB, maxThreadsPerBlock 1024
+wavefrontSize 32
+-------------------------------------------------------------------------
+Using device ID 0 (Radeon RX 7900 XTX) for rocSPARSE
+-------------------------------------------------------------------------
+rocSPARSE version: 4.0.2-b17d4c0166-dirty
+rocSPARSE data path: /home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/
+rocsparse-test: debug arguments verbose is disabled for testings (use --force-debug-arguments-verbose to skip the disabling)
+rocsparse-test: warnings are disabled for testings (use --force-warnings to skip the disabling)
+Note: Google Test filter = nightly/csrmv_managed.*/f32_r_1_1*
+[==========] Running 48 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 48 tests from nightly/csrmv_managed
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_bibd_22_8
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_bibd_22_8, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: 0.0, alphai: 0.0, beta: 0.0, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "bibd_22_8", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+ (267 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_bibd_22_8
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_bibd_22_8 (248 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_bmwcra_1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_bmwcra_1 (240 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_bmwcra_1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_bmwcra_1 (242 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_amazon0312
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_amazon0312 (96 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_amazon0312
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_amazon0312 (106 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_ASIC_320k
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_ASIC_320k, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: 0.0, alphai: 0.0, beta: 0.0, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "ASIC_320k", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+ (74 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_ASIC_320k
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_ASIC_320k (104 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_sme3Dc
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_sme3Dc (83 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_sme3Dc
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_sme3Dc (69 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_shipsec1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_shipsec1 (165 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_shipsec1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csrrowsplit_0_shipsec1 (180 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_bibd_22_8
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_bibd_22_8, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: 2.0, alphai: 0.0, beta: 0.67000000000000004, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "bibd_22_8", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+ (211 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_bibd_22_8
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_bibd_22_8 (193 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_bmwcra_1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_bmwcra_1 (241 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_bmwcra_1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_bmwcra_1 (243 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_amazon0312
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_amazon0312 (94 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_amazon0312
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_amazon0312 (90 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_ASIC_320k
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_ASIC_320k, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: 2.0, alphai: 0.0, beta: 0.67000000000000004, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "ASIC_320k", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+ (53 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_ASIC_320k
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_ASIC_320k (96 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_sme3Dc
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_sme3Dc (70 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_sme3Dc
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_sme3Dc (72 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_shipsec1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_shipsec1 (173 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_shipsec1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csrrowsplit_0_shipsec1 (189 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_bibd_22_8
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(-9690.21191406, 0.600296676159) failed: 9690.8125 exceeds permissive range [9.69021224976,38.760848999 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00010323524 would make the test pass.
+ASSERT_NEAR(-9690.21191406, 0.600296676159) failed: 9690.8125 exceeds permissive range [9.69021224976,38.760848999 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00010323524 would make the test pass.
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_bibd_22_8, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: -0.5, alphai: 0.0, beta: 0.5, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "bibd_22_8", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+ (209 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_bibd_22_8
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_bibd_22_8 (193 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_bmwcra_1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_bmwcra_1 (239 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_bmwcra_1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_bmwcra_1 (244 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_amazon0312
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_amazon0312 (91 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_amazon0312
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_amazon0312 (102 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_ASIC_320k
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(-9690.21191406, 0.600296676159) failed: 9690.8125 exceeds permissive range [9.69021224976,38.760848999 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00010323524 would make the test pass.
+ASSERT_NEAR(-9690.21191406, 0.600296676159) failed: 9690.8125 exceeds permissive range [9.69021224976,38.760848999 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00010323524 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(-98.9065246582, 0.971034228802) failed: 99.8775558472 exceeds permissive range [0.09890653193,0.39562612772 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00981771946 would make the test pass.
+ASSERT_NEAR(-98.9065246582, 0.971034228802) failed: 99.8775558472 exceeds permissive range [0.09890653193,0.39562612772 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00981771946 would make the test pass.
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_ASIC_320k, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: -0.5, alphai: 0.0, beta: 0.5, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "ASIC_320k", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+ (58 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_ASIC_320k
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_ASIC_320k (98 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_sme3Dc
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_sme3Dc (72 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_sme3Dc
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_sme3Dc (74 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_shipsec1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_shipsec1 (174 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_shipsec1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csrrowsplit_0_shipsec1 (189 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_bibd_22_8
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(-9690.21191406, 0.600296676159) failed: 9690.8125 exceeds permissive range [9.69021224976,38.760848999 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00010323524 would make the test pass.
+ASSERT_NEAR(-9690.21191406, 0.600296676159) failed: 9690.8125 exceeds permissive range [9.69021224976,38.760848999 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00010323524 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(-98.9065246582, 0.971034228802) failed: 99.8775558472 exceeds permissive range [0.09890653193,0.39562612772 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00981771946 would make the test pass.
+ASSERT_NEAR(-98.9065246582, 0.971034228802) failed: 99.8775558472 exceeds permissive range [0.09890653193,0.39562612772 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00981771946 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(-19381.3242188, 0.600296676159) failed: 19381.9238281 exceeds permissive range [19.3813247681,77.5252990723 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00005161762 would make the test pass.
+ASSERT_NEAR(-19381.3242188, 0.600296676159) failed: 19381.9238281 exceeds permissive range [19.3813247681,77.5252990723 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00005161762 would make the test pass.
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_bibd_22_8, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: -1.0, alphai: 0.0, beta: -0.5, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "bibd_22_8", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+ (209 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_bibd_22_8
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_bibd_22_8 (194 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_bmwcra_1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_bmwcra_1 (243 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_bmwcra_1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_bmwcra_1 (249 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_amazon0312
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_amazon0312 (97 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_amazon0312
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_amazon0312 (91 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_ASIC_320k
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+/home/yaxunl/git/rocm-libraries/projects/rocsparse/clients/common/rocsparse_check.cpp:290: Failure
+Value of: passed
+  Actual: false
+Expected: true
+
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.600296676159) failed: 0.600296676159 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+ASSERT_NEAR(0, 0.971034228802) failed: 0.971034228802 exceeds permissive range [1.19209289551e-06,4.76837158203e-06 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+ASSERT_NEAR(38762.4492188, 0.600296676159) failed: 38761.8476562 exceeds permissive range [38.7624511719,155.049804688 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.999999403954 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+ASSERT_NEAR(398.218780518, 0.971034228802) failed: 397.247741699 exceeds permissive range [0.398218810558,1.59287524223 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 0.998272895813 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(-9690.21191406, 0.600296676159) failed: 9690.8125 exceeds permissive range [9.69021224976,38.760848999 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00010323524 would make the test pass.
+ASSERT_NEAR(-9690.21191406, 0.600296676159) failed: 9690.8125 exceeds permissive range [9.69021224976,38.760848999 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00010323524 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(-98.9065246582, 0.971034228802) failed: 99.8775558472 exceeds permissive range [0.09890653193,0.39562612772 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00981771946 would make the test pass.
+ASSERT_NEAR(-98.9065246582, 0.971034228802) failed: 99.8775558472 exceeds permissive range [0.09890653193,0.39562612772 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00981771946 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/sme3Dc.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/shipsec1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+ASSERT_NEAR(-19381.3242188, 0.600296676159) failed: 19381.9238281 exceeds permissive range [19.3813247681,77.5252990723 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00005161762 would make the test pass.
+ASSERT_NEAR(-19381.3242188, 0.600296676159) failed: 19381.9238281 exceeds permissive range [19.3813247681,77.5252990723 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00005161762 would make the test pass.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bibd_22_8.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/bmwcra_1.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/amazon0312.csr' ... 
+Import done.
+Opening file '/home/yaxunl/git/rocm-libraries/projects/rocsparse/build/Release/clients/staging/../matrices/ASIC_320k.csr' ... 
+Import done.
+ASSERT_NEAR(-199.269607544, 0.971034228802) failed: 200.240646362 exceeds permissive range [0.199269622564,0.797078490257 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00487303734 would make the test pass.
+ASSERT_NEAR(-199.269607544, 0.971034228802) failed: 200.240646362 exceeds permissive range [0.199269622564,0.797078490257 ]
+Test failed with tol = 0.0010000000475. Relaxing the tolerance to at least 1.00487303734 would make the test pass.
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_ASIC_320k, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: -1.0, alphai: 0.0, beta: -0.5, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "ASIC_320k", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+ (55 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_ASIC_320k
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_ASIC_320k (102 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_sme3Dc
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_sme3Dc (71 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_sme3Dc
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_sme3Dc (69 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_shipsec1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_shipsec1 (168 ms)
+[ RUN      ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_shipsec1
+[       OK ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csrrowsplit_0_shipsec1 (198 ms)
+[----------] 48 tests from nightly/csrmv_managed (7113 ms total)
+
+[----------] Global test environment tear-down
+[==========] 48 tests from 1 test suite ran. (7140 ms total)
+[  PASSED  ] 40 tests.
+[  FAILED  ] 8 tests, listed below:
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_bibd_22_8, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: 0.0, alphai: 0.0, beta: 0.0, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "bibd_22_8", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_0_0_0_0_NT_1b_csr_csradaptive_0_ASIC_320k, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: 0.0, alphai: 0.0, beta: 0.0, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "ASIC_320k", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_bibd_22_8, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: 2.0, alphai: 0.0, beta: 0.67000000000000004, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "bibd_22_8", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_2_0_0p67_0_NT_1b_csr_csradaptive_0_ASIC_320k, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: 2.0, alphai: 0.0, beta: 0.67000000000000004, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "ASIC_320k", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_bibd_22_8, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: -0.5, alphai: 0.0, beta: 0.5, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "bibd_22_8", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_n0p5_0_0p5_0_NT_1b_csr_csradaptive_0_ASIC_320k, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: -0.5, alphai: 0.0, beta: 0.5, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "ASIC_320k", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_bibd_22_8, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: -1.0, alphai: 0.0, beta: -0.5, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "bibd_22_8", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+
+[  FAILED  ] nightly/csrmv_managed.level2/f32_r_1_1_n1_0_n0p5_0_NT_1b_csr_csradaptive_0_ASIC_320k, where GetParam() = { function: "csrmv_managed", index_type_I: "i32", index_type_J: "i32", a_type: "f32_r", b_type: "f32_r", c_type: "f32_r", x_type: "f32_r", y_type: "f32_r", compute_type: "f32_r", A_row_indextype: "i32", A_col_indextype: "i32", B_row_indextype: "i32", B_col_indextype: "i32", C_row_indextype: "i32", C_col_indextype: "i32", transA: "NT", transB: "NT", baseA: "1b", baseB: "0b", baseC: "0b", baseD: "0b", M: 1, N: 1, K: -1, nnz: -1, block_dim: 2, row_block_dimA: 2, col_block_dimA: 2, row_block_dimB: 2, col_block_dimB: 2, dim_x: 1, dim_y: 1, dim_z: 1, ll: -2, l: -1, u: 1, uu: 2, alpha: -1.0, alphai: 0.0, beta: -0.5, betai: 0.0, threshold: 1.0, percentage: 0.0, action: "num", part: "auto", matrix_type: "general", diag: "ND", uplo: "L", storage: "sorted", analysis_policy: "reuse", solve_policy: "auto", direction: "row", order: "col", orderB: "col", orderC: "col", formatA: "coo", formatB: "coo", formatC: "coo", itilu0_alg: "async_inplace", sddmm_alg: "default", spmv_alg: "csradaptive", spsv_alg: "default", spitsv_alg: "default", spsm_alg: "default", spmm_alg: "default", spgemm_alg: "default", spgeam_alg: "default", sparse_to_dense_alg: "default", dense_to_sparse_alg: "default", gtsv_interleaved_alg: "default", gpsv_interleaved_alg: "default", matrix: "csr", matrix_init_kind: "default", file: "ASIC_320k", algo: 0, numeric_boost: 0, boost_tol: 0.0, boost_val: 1.0, boost_vali: 0.0, tolm: 1.0, graph_test: false, skip_reproducibility: false, sparsity_pattern_statistics: false, call_stage_analysis: true, convert_to_int: false, name: "csrmv_managed_file", category: "nightly", hardware: "all", skip_hardware: "none", req_memory: 4, unit_check: 1, timing: 0, iters: 10, iters_inner: 50, nfreeiter: 20, nmaxiter: 1000, denseld: -1, batch_count: -1, batch_count_A: -1, batch_count_B: -1, batch_count_C: -1, batch_stride: -1, ld_multiplier_B: 2, ld_multiplier_C: 2 }
+
+
+ 8 FAILED TESTS
