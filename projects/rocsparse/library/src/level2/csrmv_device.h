@@ -26,6 +26,51 @@
 
 #include "rocsparse_common.hpp"
 
+// Atomic add helper for arithmetic types
+template <typename T>
+__device__ inline T hip_atomic_add(T* addr, T val)
+{
+    [[clang::atomic(fine_grained_memory)]] {
+    return __hip_atomic_fetch_add(addr, val, __ATOMIC_RELAXED, __HIP_MEMORY_SCOPE_AGENT);
+    }
+}
+
+template <>
+__device__ inline rocsparse_float_complex hip_atomic_add(rocsparse_float_complex* ptr,
+                                                         rocsparse_float_complex  val)
+{
+    return rocsparse_float_complex(atomicAdd((float*)ptr, std::real(val)),
+                                    atomicAdd((float*)ptr + 1, std::imag(val)));
+}
+
+template <>
+__device__ inline rocsparse_double_complex hip_atomic_add(rocsparse_double_complex* ptr,
+                                                                rocsparse_double_complex  val)
+{
+    return rocsparse_double_complex(atomicAdd((double*)ptr, std::real(val)),
+                                    atomicAdd((double*)ptr + 1, std::imag(val)));
+}
+
+// Toggle a 32-bit flag bit with explicit memory order/scope
+__device__ inline void hip_atomic_flag_xor(uint32_t* addr, uint32_t mask,
+                                           int order = __ATOMIC_RELAXED,
+                                           int scope = __HIP_MEMORY_SCOPE_AGENT)
+{
+    [[clang::atomic(remote_memory,fine_grained_memory)]] {
+    __hip_atomic_fetch_xor(addr, mask, order, scope);
+    }
+}
+
+// Poll a 32-bit flag using fetch_max(val, 0) (non-destructive read) with acquire semantics
+__device__ inline uint32_t hip_atomic_poll_flag_acquire(uint32_t* addr,
+                                                        int order = __ATOMIC_RELAXED,
+                                                        int scope = __HIP_MEMORY_SCOPE_AGENT)
+{
+    [[clang::atomic(remote_memory,fine_grained_memory)]] {
+    return __hip_atomic_fetch_max(addr, 0u, order, scope);
+    }
+}
+
 namespace rocsparse
 {
     template <uint32_t BLOCKSIZE,
@@ -506,6 +551,8 @@ namespace rocsparse
 
                 // Release other workgroups
                 atomicXor(&wg_flags[first_wg_in_row], 1U);
+                // Release other workgroups; use release ordering at workgroup scope to match prior fence intent
+                //hip_atomic_flag_xor(&wg_flags[first_wg_in_row], 1U);
             }
 
             const I vecStart = (I)wg * (I)BLOCK_MULTIPLIER * BLOCKSIZE + row_offset - idx_base;
@@ -536,6 +583,7 @@ namespace rocsparse
             {
                 if(gid != first_wg_in_row)
                 {
+                    //while(hip_atomic_poll_flag_acquire(&wg_flags[first_wg_in_row]) == compare_value)
                     while(rocsparse::atomic_max(&wg_flags[first_wg_in_row], 0U) == compare_value)
                         ;
 
@@ -547,7 +595,8 @@ namespace rocsparse
                     wg_flags[gid] ^= 1U;
                 }
 
-                rocsparse::atomic_add(y + row, partialSums[0]);
+                //rocsparse::atomic_add(y + row, partialSums[0]);
+                hip_atomic_add(y + row, partialSums[0]);
             }
         }
     }
@@ -1053,6 +1102,7 @@ namespace rocsparse
 
             // Release other workgroups
             atomicXor(&wg_flags[first_wg_in_row], 1U);
+            //hip_atomic_flag_xor(&wg_flags[first_wg_in_row], 1U);
         }
 
         // Load in a bunch of partial results into your register space, rather than LDS (no
